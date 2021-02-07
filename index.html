@@ -18,24 +18,39 @@
       <form class="col-md-6 m-auto py-5">
         <div class="input-group mb-3">
           <input
+            id="food"
             type="text"
             class="form-control"
             placeholder="Search  for  Safe Food item ......"
           />
           <div>
-            <button
-              type="button"
-              class="btn"
-              id="button"
-              onclick=" displayFoods()"
-            >
+            <button type="button" class="btn" id="button" onclick="search()">
               Search
             </button>
           </div>
         </div>
       </form>
-      <div class="text-white text-center"></div>
+      <h3 id="alternative-response"></h3>
+      <div id="foods"></div>
     </div>
     <script src="main.js"></script>
   </body>
 </html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Tour</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="countryDetail">
+
+    </div>
+    <div id="countries">
+    </div>
+    <script src="app.js"></script>
+</body>
+</html> -->
