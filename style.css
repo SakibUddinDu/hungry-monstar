@@ -1,0 +1,9 @@
+body {
+  background: url(images/very-hungry-man1.jpg);
+  background-size: cover;
+  height: 100vh;
+}
+.btn {
+  background: #f06c4e;
+  border-radius: 0px 6px 6px 0px;
+}
