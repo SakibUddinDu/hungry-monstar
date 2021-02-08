@@ -1,5 +1,5 @@
 body {
-  background: url(images/very-hungry-man1.jpg);
+  background: url(images/very-hungry-man3.jpg) no-repeat;
   background-size: cover;
   height: 100vh;
 }
@@ -7,16 +7,17 @@ body {
   background: #f06c4e;
   border-radius: 0px 6px 6px 0px;
 }
-
-.food-items {
+ul {
+  /* list-style: square inside url("sqpurple.gif"); */
+  list-style: none;
+}
+/* #ingredientImage {
+  width: 30%;
+  height: 30%;
+} */
+/* .foods {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 25px;
   margin-top: 30px;
-}
-.food-item {
-  background-color: #f8f7f5;
-}
-.food-item h4 {
-  padding: 10px 0;
-}
+} */

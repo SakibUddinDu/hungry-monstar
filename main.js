@@ -16,125 +16,78 @@ const search = () =>{
 
 
     const showFoods = foodItems =>{
-        console.log(foodItems)
-        const  foodArray = foodItems.meals;
+        // console.log(foodItems)
+       
         const foodItemsDiv = document.getElementById('foods');
+        const  foodArray = foodItems.meals;
         foodArray.forEach(food => {
-            let dataItem = '';
-            dataItem += `
+            const foodDiv = document.createElement('div')
+            foodDiv.className = 'col-md-3 card'
             
-            <div class="card" style="width: 18rem;">
-                <img src="${food.strSource} class="card-img-top" alt="...">
-                <div class="card-body">
-                 <h4 class="card-text">${food.strMeal}</h4>
-                </div>
-            </div>
+         const  foodInfo = `
  
-            foodItemsDiv.innerHTML = dataItem;
-            foodItemsDiv.innerHTML = dataItem;
-            foodItemsDiv.appendChild();
-            // foodItemsDiv.appendChild(foodDiv);    
-            // // console.log(foodInfo);  
-            });
-           
+         
+       
             
+               <img src="${food.strMealThumb}" class="card-img-top" alt="...">
+               <div class="card-body">
+                <h4 class="card-text">${food.strMeal}</h4>
+                <button class="btn" onclick="displayIngredients('${food.strMeal}')" >Ingredients</button>
+               </div>
+         
+
+
+
+    
+
+         
+         `;
+         foodDiv.innerHTML = foodInfo;
+         foodItemsDiv.appendChild(foodDiv)
+        });   
     }
-           
-    // }
 
+    const displayIngredients = name =>{
+        const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`
+        // console.log(name)
+        fetch(url)
+        .then(res =>res.json())
+        // .then(data =>console.log(data.meals[0].strMeal))
+        .then(data =>renderFoodData(data.meals[0]))
+    }
 
-        // <p>${food.strIngredient1}</p>
-        // <p>${food.strIngredient2}</p>
-        // <p>${food.strIngredient3}</p>
-        // <p>${food.strIngredient4}</p>
-        // <p>${food.strIngredient5}</p>
-        // <p>${food.strIngredient6}</p>
-        // <p>${food.strIngredient7}</p>
+    const renderFoodData= foodItem =>{
+        const foodItemDiv= document.getElementById('foodIngredients');
+        foodItemDiv.innerHTML = `
+        <img id="ingredientImage" src="${foodItem.strMealThumb}" alt="...">
+        <h1>${foodItem.strMeal}</h1>
+        <h5>Ingredients</h5>
+        <ul>
+        <li><span class="check-icon">&#x2714;</span>${foodItem.strMeasure1} ${foodItem.strIngredient1}</li>
+        <li><span class="check-icon">&#x2714;</span>${foodItem.strMeasure2}${foodItem.strIngredient2}</li>
+        <li><span class="check-icon">&#x2714;</span>${foodItem.strMeasure3} ${foodItem.strIngredient3}</li>
+        <li><span class="check-icon">&#x2714;</span>${foodItem.strMeasure4} ${foodItem.strIngredient4}</li>
+        <li><span class="check-icon">&#x2714;</span>${foodItem.strMeasure5}${foodItem.strIngredient5}</li>
+        <li><span class="check-icon">&#x2714;</span>${foodItem.strMeasure6}${foodItem.strIngredient6}</li>
+      </ul>
+        ,
+        `
+    }
+    // const  foodItem= document.getElementsByClassName("card");
+    // foodItem.addEventListener('click',function(){
+    //     console.log('3')
+   // })
+
+   //  <img src="${food.strSource} class="card-img-top" alt="...">
+        //  <h4 class="card-text">${food.strMeal}</h4>
+
+// <img src="${food.strSource} class="card-img-top" alt="...">
         
-                 
-        // const searchInput = document.getElementById('search-input');
-        // const detailsArea = document.getElementById('details-area');
-        // const errorContent = document.getElementById('error-area');
-        
-        // // Search area
-        // const clickToSearch = () => {
-        //   const itemsName = searchInput.value;
-        //   fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${itemsName}`)
-        //     .then((res) => res.json())
-        //     .then((data) => {
-        //       const foodItems = document.getElementById('food-items');
-        //       let dataItem = '';
-        
-        //       if (itemsName === '') {
-        //         errorContent.innerHTML = `
-        //           <div class="error-content">
-        //             <h2>The search box cannot be empty.</h2>
-        //             <button onclick="closeBtn()" class="close">X</button>
-        //           </div>
-        //         `;
-        
-        //         errorContent.style.display = 'block';
-        //         foodItems.innerHTML = '';
-        //       } else if (data.meals) {
-        //         data.meals.forEach((item) => {
-        //           dataItem += `
-        //           <div onclick="itemDetails('${item.strMeal}')" class="food-item"> 
-        //             <img src="${item.strMealThumb}" />
-        //             <h4>${item.strMeal}</h4>
-        //           </div>`;
-        //         });
-        
-        //         foodItems.innerHTML = dataItem;
-        //       } else {
-        //         errorContent.innerHTML = `
-        //           <div class="error-content">
-        //             <h2>Sorry, We do not have this item at this time.</h2>
-        //             <button onclick="closeBtn()" class="close">X</button>
-        //           </div>
-        //         `;
-        
-        //         errorContent.style.display = 'block';
-        //         foodItems.innerHTML = '';
-        //       }
-        //       detailsArea.style.display = 'none';
-        //     });
-        //   searchInput.value = '';
-        // };
-        
-        // 1item click to show Deatils
-        // const itemDetails = (itemName) => {
-        //   fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${itemName}`)
-        //     .then((res) => res.json())
-        //     .then((data) => {
-        //       const itemDetailsArea = document.getElementById('item-details');
-        //       const mealsItem = data.meals[0];
-        //       itemDetailsArea.innerHTML = `
-        //         <div class="details-img">
-        //           <img
-        //             src="${mealsItem.strMealThumb}"
-        //             alt="${mealsItem.strMeal}"
-        //           />
-        //         </div>
-        //         <h2>${mealsItem.strMeal}</h2>
-        //         <h4>Ingredient</h4>
-        //         <ul>
-        //           <li><span class="check-icon">&#x2714;</span>${mealsItem.strMeasure1} ${mealsItem.strIngredient1}</li>
-        //           <li><span class="check-icon">&#x2714;</span>${mealsItem.strMeasure2} ${mealsItem.strIngredient2}</li>
-        //           <li><span class="check-icon">&#x2714;</span>${mealsItem.strMeasure3} ${mealsItem.strIngredient3}</li>
-        //           <li><span class="check-icon">&#x2714;</span>${mealsItem.strMeasure4} ${mealsItem.strIngredient4}</li>
-        //           <li><span class="check-icon">&#x2714;</span>${mealsItem.strMeasure5} ${mealsItem.strIngredient5}</li>
-        //           <li><span class="check-icon">&#x2714;</span>${mealsItem.strMeasure6} ${mealsItem.strIngredient6}</li>
-        //         </ul>
-        //         <button onclick="closeBtn()" class="close">X</button>
-        //       `;
-        
-        //       detailsArea.style.display = 'block';
-        //     });
-        // };
-        
-        // // Clock to close button
-        // const closeBtn = () => {
-        //   detailsArea.style.display = 'none';
-        //   errorContent.style.display = 'none';
-        // };
-        
+    //     <div class="col-md-3" style="margin-top: 20px;" dataId="${meal.idMeal}">
+    //     <div class=" card text-center "  style="background-color:#F8F7F5;border-radius: 2%; ">
+    //         <img src="${meal.strMealThumb}" data-id="${meal.idMeal}" class="card-img-top " style="width: 100%; border-top-right-radius: 2%; border-top-left-radius: 2%; ">
+    //         <div class="card-body " data-id="${meal.idMeal}" style="padding-top: 7px;padding-bottom: 7px; ">
+    //             <h3 class="card-text text-center " data-id="${meal.idMeal}" style="font-size:17px">${meal.strMeal}</h3>
+    //         </div>
+    //     </div>
+    // </div>
