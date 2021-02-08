@@ -1,4 +1,3 @@
- .
 const alternativeResponse = document.getElementById("alternative-response");
 const search = () =>{
     const displayFood = document.getElementById('food').value;
@@ -49,11 +48,11 @@ const foodItemsDiv = document.getElementById('foods');
         <h5>Ingredients</h5>
         <ul>
         <li><span class="check-icon">&#x2714;</span>${foodItem.strMeasure1} ${foodItem.strIngredient1}</li>
-        <li><span class="check-icon">&#x2714;</span>${foodItem.strMeasure2}${foodItem.strIngredient2}</li>
+        <li><span class="check-icon">&#x2714;</span>${foodItem.strMeasure2} ${foodItem.strIngredient2}</li>
         <li><span class="check-icon">&#x2714;</span>${foodItem.strMeasure3} ${foodItem.strIngredient3}</li>
         <li><span class="check-icon">&#x2714;</span>${foodItem.strMeasure4} ${foodItem.strIngredient4}</li>
-        <li><span class="check-icon">&#x2714;</span>${foodItem.strMeasure5}${foodItem.strIngredient5}</li>
-        <li><span class="check-icon">&#x2714;</span>${foodItem.strMeasure6}${foodItem.strIngredient6}</li>
+        <li><span class="check-icon">&#x2714;</span>${foodItem.strMeasure5} ${foodItem.strIngredient5}</li>
+        <li><span class="check-icon">&#x2714;</span>${foodItem.strMeasure6} ${foodItem.strIngredient6}</li>
       </ul>
         ,
         `
