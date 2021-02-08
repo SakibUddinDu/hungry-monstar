@@ -2,22 +2,22 @@ body {
   background: url(images/very-hungry-man3.jpg) no-repeat;
   background-size: cover;
   height: 100vh;
+  /* background: rgba(255, 255, 255, 0.6); */
 }
 .btn {
   background: #f06c4e;
   border-radius: 0px 6px 6px 0px;
 }
 ul {
-  /* list-style: square inside url("sqpurple.gif"); */
   list-style: none;
 }
-/* #ingredientImage {
+#ingredientImage {
   width: 30%;
   height: 30%;
-} */
-/* .foods {
+}
+.foods {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 25px;
   margin-top: 30px;
-} */
+}
